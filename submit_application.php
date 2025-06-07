@@ -1,8 +1,7 @@
 <?php
-// Database connection details
-$username = "root";
-$password = "Lu2003yand@";
-$database = "wandile";
+$username = "s2588145";
+$password = "s2588145";
+$database = "d2588145";
 $conn = mysqli_connect("127.0.0.1", $username, $password, $database);
 
 // Check connection
