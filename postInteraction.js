@@ -1,3 +1,6 @@
+// Hide thank-you message by default when the script loads
+document.getElementById('thankYouMsg').style.display = 'none';
+
 document.getElementById('jacketForm').addEventListener('submit', function(event) {
   event.preventDefault();
 
@@ -27,7 +30,7 @@ document.getElementById('jacketForm').addEventListener('submit', function(event)
       });
       // Reset form
       document.getElementById('jacketForm').reset();
-      // Show alert
+      // Show alert after a short delay
       setTimeout(() => {
         alert("Your application has been submitted! You may now close this tab and wait to be chosen 😂🫱🏾‍🫲🏼");
       }, 500);

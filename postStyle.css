@@ -1,121 +1,171 @@
+/* ========== Base Layout ========== */
 body {
   font-family: 'Comic Sans MS', cursive, sans-serif;
-  background: linear-gradient(to bottom, #e0f2e9, #bde0c0);
-  color: #2d3a2e;
+  background-image: url('https://raw.githubusercontent.com/Wandile-N/jacketposter/main/realmadrid.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-color: #0a0a0a; /* fallback */
+  color: #f5f5f5;
   margin: 0;
   padding: 0;
   text-align: center;
   line-height: 1.5;
-  background-image: url('https://images.unsplash.com/photo-1548786817-5a908f56de32?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+  position: relative;
+  z-index: 0;
 }
 
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: -1;
+}
+
+/* ========== Typography ========== */
 h1 {
   font-size: 2.5em;
   margin: 20px 10px;
-  color: #222;
+  color: #e8f5e9;
   animation: bounce 1.5s infinite alternate;
-}
-
-@keyframes bounce {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(-10px); }
 }
 
 p {
   font-size: 1.1em;
   width: 90%;
+  max-width: 700px;
   margin: 0 auto 20px;
-  color: #444;
+  color: #f0f0f0;
 }
 
-.jacket-gallery {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 15px;
-  margin: 20px 10px;
-}
-
+/* ========== Jacket Image ========== */
 .jacket-gallery img {
-  width: 90%;
-  max-width: 300px;
+  width: 100%;
+  max-width: 250px;
   height: auto;
-  border: 4px dashed #1e90ff;
+  border: 4px dashed #fff;
   border-radius: 16px;
-  box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
-  transition: transform 0.3s ease-in-out;
-  display: block;
-  margin: 30px auto;
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.3);
+  margin: 20px auto;
   animation: floaty 3s ease-in-out infinite;
 }
 
-.jacket-gallery img:hover {
-  transform: scale(1.05) rotate(1deg);
-}
-
-@keyframes floaty {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
-  100% { transform: translateY(0px); }
-}
-
+/* ========== Form ========== */
 form {
-  background: #f9f9f9;
-  padding: 20px;
-  margin: 30px auto;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 25px;
+  margin: 40px auto;
   width: 90%;
   max-width: 500px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  color: #fff;
+  animation: floatyForm 4s ease-in-out infinite;
+  text-align: left;
+}
+
+form label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  font-size: 1em;
+  color: #ffffff;
+  padding-left: 2px;
 }
 
 textarea, input {
   width: 100%;
-  padding: 12px;
-  margin: 10px 0 20px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.25);
+  border: none;
+  border-radius: 10px;
+  padding: 14px;
+  margin-bottom: 20px;
   font-size: 1em;
+  color: #fff;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  outline: none;
+  backdrop-filter: blur(10px);
+  box-sizing: border-box;
 }
 
+textarea::placeholder,
+input::placeholder {
+  color: #e0e0e0;
+}
+
+textarea:focus,
+input:focus {
+  border: 1px solid #1e90ff;
+  background: rgba(255, 255, 255, 0.35);
+}
+
+/* ========== Button ========== */
 button {
-  padding: 12px 25px;
-  background-color: #1e90ff;
+  padding: 14px 30px;
+  background: linear-gradient(to right, #1e90ff, #6dd5fa);
   color: white;
   border: none;
-  border-radius: 8px;
-  font-size: 1.1em;
+  border-radius: 30px;
+  font-size: 1.2em;
   cursor: pointer;
-  transition: background 0.3s;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  font-weight: bold;
+  box-shadow: 0 5px 15px rgba(30, 144, 255, 0.4);
+  width: 100%;
 }
 
 button:hover {
-  background-color: #1565c0;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(30, 144, 255, 0.6);
 }
 
-.gif-container {
-  margin-top: 25px;
-}
-
+/* ========== GIF + Thank You ========== */
 .gif-container img {
-  max-width: 90%;
-  border-radius: 12px;
+  width: 100%;
+  max-width: 350px;
+  margin: 20px auto;
+  display: block;
 }
 
 .thank-you {
   font-size: 1.3em;
-  color: green;
-  margin-top: 20px;
-  display: none;
+  color: #90ee90;
+  margin: 20px 0;
 }
 
-@media (min-width: 600px) {
-  .jacket-gallery {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
+/* ========== Animations ========== */
+@keyframes floatyForm {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+}
+
+@keyframes floaty {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+/* ========== Responsiveness ========== */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 1.8em;
+    padding: 0 10px;
   }
+
+  p {
+    font-size: 1em;
+    padding: 0 10px;
+  }
+
+  button {
+    font-size: 1em;
+  }
+}
+
+#thankYouMsg {
+  display: none;
 }
